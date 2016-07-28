@@ -6,7 +6,10 @@ angular.module('fakeEcommerceApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angulartics',
+  'angulartics.google.analytics',
+  'angulartics.google.tagmanager'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

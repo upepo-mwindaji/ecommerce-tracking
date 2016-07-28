@@ -12,7 +12,10 @@
     "angular-bootstrap": "~1.1.2",
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "angulartics-google-analytics": "^0.2.1",
+    "angulartics": "^1.1.2",
+    "angulartics-google-tag-manager": "^0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.0"
