@@ -27,6 +27,7 @@ class ProductComponent {
   $onInit() {
     this.$http.get('/api/products/'+ this.$stateParams.sku).then(response => {
       this.product = response.data[0];
+      console.log(response.data);
     });
   }
 

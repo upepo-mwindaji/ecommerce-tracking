@@ -15,7 +15,6 @@ class MainController {
     });
     this.$http.get('/api/products/categories').then(response => {
       this.categories = response.data;
-      console.log(response.data);
     });
   }
 
