@@ -5,6 +5,7 @@
 
 'use strict';
 import Thing from '../api/thing/thing.model';
+import Products from '../api/products/products.model';
 
 Thing.find({}).remove()
   .then(() => {
@@ -38,3 +39,27 @@ Thing.find({}).remove()
     });
   });
 
+  Products.find({}).remove()
+    .then(() => {
+      Products.create({
+        name: 'Product1',
+        sku: '123',
+        info: 'An awesome product',
+        category: 'necklaces'
+      }, {
+        name: 'Product2',
+        sku: '345',
+        info: 'Also an awesome product',
+        category: 'necklaces'
+      }, {
+        name: 'Product3',
+        sku: '678',
+        info: 'Not so great of a product',
+        category: 'rings'
+      }, {
+        name: 'Product4',
+        sku: '91011',
+        info: 'a wonderfull product',
+        category: 'rings'
+      });
+    });

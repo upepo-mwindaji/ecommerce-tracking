@@ -1,12 +1,14 @@
 'use strict';
 (function(){
 
-class Product1Component {
-  constructor() {
+class ProductComponent {
+  constructor($http,$stateParams) {
+    this.$http = $http;
+    this.$stateParams = $stateParams;
     var dataLayer = window.dataLayer = window.dataLayer || [];
     dataLayer.push({
       'ecommerce': {
-        'currencyCode': 'EUR', 
+        'currencyCode': 'EUR',
         'detail': {
           'actionField': {'list': 'Apparel Gallery'},    // 'detail' actions have an optional list property.
           'products': [{
@@ -21,12 +23,19 @@ class Product1Component {
        }
     });
   }
+
+  $onInit() {
+    this.$http.get('/api/products/'+ this.$stateParams.sku).then(response => {
+      this.product = response.data[0];
+    });
+  }
+
 }
 
 angular.module('fakeEcommerceApp')
-  .component('product1', {
-    templateUrl: 'app/product1/product1.html',
-    controller: Product1Component
+  .component('product', {
+    templateUrl: 'app/product/product.html',
+    controller: ProductComponent
   });
 
 })();

@@ -6,23 +6,17 @@ class MainController {
 
   constructor($http) {
     this.$http = $http;
-    // this.$analytics = $analytics;
-    // this.$location = $location;
     this.awesomeThings = [];
   }
-
-  // constructor($http, $analytics, $location) {
-  //   this.$http = $http;
-  //   this.$analytics = $analytics;
-  //   this.$location = $location;
-  //   this.awesomeThings = [];
-  // }
 
   $onInit() {
     this.$http.get('/api/things').then(response => {
       this.awesomeThings = response.data;
     });
-    // $analytics.pageTrack($location.absUrl());
+    this.$http.get('/api/products/categories').then(response => {
+      this.categories = response.data;
+      console.log(response.data);
+    });
   }
 
   addThing() {

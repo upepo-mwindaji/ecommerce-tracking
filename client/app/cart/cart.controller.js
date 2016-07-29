@@ -3,7 +3,6 @@
 
 class CartComponent {
   constructor() {
-    this.message = 'Hello';
     var dataLayer = window.dataLayer = window.dataLayer || [];
     dataLayer.push({
       'event': 'checkout',

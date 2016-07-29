@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Component: Category2Component', function () {
+describe('Component: Category1Component', function () {
 
   // load the controller's module
   beforeEach(module('fakeEcommerceApp'));
 
-  var Category2Component, scope;
+  var CategoryComponent, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($componentController, $rootScope) {
     scope = $rootScope.$new();
-    Category2Component = $componentController('Category2Component', {
+    CategoryComponent = $componentController('CategoryComponent', {
       $scope: scope
     });
   }));

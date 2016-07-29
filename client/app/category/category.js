@@ -3,8 +3,8 @@
 angular.module('fakeEcommerceApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('category1', {
-        url: '/category1',
-        template: '<category-1></category-1>'
+      .state('category', {
+        url: '/category/:name',
+        template: '<category></category>'
       });
   });

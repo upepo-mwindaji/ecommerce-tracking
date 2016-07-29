@@ -1,9 +1,10 @@
 'use strict';
 (function(){
 
-class Category1Component {
-  constructor() {
-    // this.message = 'Hello';
+class CategoryComponent {
+  constructor($http,$stateParams) {
+    this.$http = $http;
+    this.$stateParams = $stateParams;
     var dataLayer = window.dataLayer = window.dataLayer || [];
     dataLayer.push({
       'ecommerce': {
@@ -33,12 +34,18 @@ class Category1Component {
     });
   }
 
+  $onInit() {
+    this.$http.get('/api/products/categories/'+ this.$stateParams.name).then(response => {
+      this.products = response.data;
+    });
+  }
+
 }
 
 angular.module('fakeEcommerceApp')
-  .component('category1', {
-    templateUrl: 'app/category1/category1.html',
-    controller: Category1Component
+  .component('category', {
+    templateUrl: 'app/category/category.html',
+    controller: CategoryComponent
   });
 
 })();

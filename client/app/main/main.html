@@ -14,8 +14,7 @@
         <li><a href="#" uib-tooltip="{{thing.info}}">{{thing.name}}</a></li>
       </ul> -->
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6">
-        <li><a ui-sref="category1">Category1</a></li>
-        <li><a ui-sref="category2">Category2</a></li>
+        <li ng-repeat="category in $ctrl.categories"><a ui-sref="category({name:'{{category}}'})">{{category}}</a></li>
       </ul>
 
     </div>
