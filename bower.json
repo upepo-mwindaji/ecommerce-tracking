@@ -11,7 +11,7 @@
     "angular-sanitize": "~1.5.0",
     "angular-bootstrap": "~1.1.2",
     "font-awesome": ">=4.1.0",
-    "lodash": "~2.4.1",
+    "lodash": "^4.14.1",
     "angular-ui-router": "~0.2.15",
     "angulartics-google-analytics": "^0.2.1",
     "angulartics": "^1.1.2",

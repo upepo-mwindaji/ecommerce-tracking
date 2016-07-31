@@ -68,7 +68,7 @@ export function index(req, res) {
 
 // Gets a single Products from the DB
 export function show(req, res) {
-  console.log('request for product sku', req.params.sku);
+  console.log('request')
   return Products.find({ 'sku': req.params.sku }).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))

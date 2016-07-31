@@ -16,4 +16,8 @@ angular.module('fakeEcommerceApp', [
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+  })
+
+  .run(function(){
+    var dataLayer = window.dataLayer = window.dataLayer || [];
   });
