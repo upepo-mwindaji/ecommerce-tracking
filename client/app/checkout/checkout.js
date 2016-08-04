@@ -15,15 +15,29 @@ angular.module('fakeEcommerceApp')
                 'currencyCode': 'EUR',
                 'checkout': {
                   'actionField': {'step': 1, 'option': 'Visa'},
-                  'products': [{
-                    'name': 'Triblend Android T-Shirt',
+                  'products': [{                            // List of productFieldObjects.
+                    'name': 'Triblend Android T-Shirt',     // Name or ID is required.
                     'id': '12345',
                     'price': '15.25',
-                    'brand': 'Google',
+                    'brand': 'Google2',
                     'category': 'Apparel',
                     'variant': 'Gray',
-                    'quantity': 1
-                  }]
+                    'quantity': 1,
+                    'coupon': '',                            // Optional fields may be omitted or set to empty string.
+                    'metric1':'20.25',  // original price
+                    'metric2':'5.00'  // discount
+                   },
+                   {
+                    'name': 'Donut Friday Scented T-Shirt',
+                    'id': '67890',
+                    'price': '33.75',
+                    'brand': 'Google2',
+                    'category': 'Apparel',
+                    'variant': 'Black',
+                    'quantity': 1,
+                    'metric1':'33.75',  // original price
+                    'metric2':'0.00'  // discount
+                   }]
                 }
               }
             });
@@ -42,19 +56,34 @@ angular.module('fakeEcommerceApp')
             datalayerService.pushToDataLayer(   //also push event ?
             {
               'event': 'checkout',
+              'dimension1': 'standardShipping',
               'ecommerce': {
                 'currencyCode': 'EUR',
                 'checkout': {
                   'actionField': {'step': 2, 'option': 'Visa'},
-                  'products': [{
-                    'name': 'Triblend Android T-Shirt',
+                  'products': [{                            // List of productFieldObjects.
+                    'name': 'Triblend Android T-Shirt',     // Name or ID is required.
                     'id': '12345',
                     'price': '15.25',
-                    'brand': 'Google',
+                    'brand': 'Google2',
                     'category': 'Apparel',
                     'variant': 'Gray',
-                    'quantity': 1
-                  }]
+                    'quantity': 1,
+                    'coupon': '',                            // Optional fields may be omitted or set to empty string.
+                    'metric1':'20.25',  // original price
+                    'metric2':'5.00'  // discount
+                   },
+                   {
+                    'name': 'Donut Friday Scented T-Shirt',
+                    'id': '67890',
+                    'price': '33.75',
+                    'brand': 'Google2',
+                    'category': 'Apparel',
+                    'variant': 'Black',
+                    'quantity': 1,
+                    'metric1':'33.75',  // original price
+                    'metric2':'0.00'  // discount
+                   }]
                 }
               }
             });
@@ -73,19 +102,38 @@ angular.module('fakeEcommerceApp')
             datalayerService.pushToDataLayer(   //also push event ?
             {
               'event': 'checkout',
+              'dimension1': 'standardShipping',
+              'dimension2': 'Invoice',
               'ecommerce': {
                 'currencyCode': 'EUR',
                 'checkout': {
-                  'actionField': {'step': 3, 'option': 'Visa'},
-                  'products': [{
-                    'name': 'Triblend Android T-Shirt',
+                  'actionField': {
+                    'step': 3,
+                    'option': 'Visa'
+                  },
+                  'products': [{                            // List of productFieldObjects.
+                    'name': 'Triblend Android T-Shirt',     // Name or ID is required.
                     'id': '12345',
                     'price': '15.25',
-                    'brand': 'Google',
+                    'brand': 'Google2',
                     'category': 'Apparel',
                     'variant': 'Gray',
-                    'quantity': 1
-                  }]
+                    'quantity': 1,
+                    'coupon': '',                            // Optional fields may be omitted or set to empty string.
+                    'metric1':'20.25',  // original price
+                    'metric2':'5.00'  // discount
+                   },
+                   {
+                    'name': 'Donut Friday Scented T-Shirt',
+                    'id': '67890',
+                    'price': '33.75',
+                    'brand': 'Google2',
+                    'category': 'Apparel',
+                    'variant': 'Black',
+                    'quantity': 1,
+                    'metric1':'33.75',  // original price
+                    'metric2':'0.00'  // discount
+                   }]
                 }
               }
             });
@@ -104,19 +152,68 @@ angular.module('fakeEcommerceApp')
             datalayerService.pushToDataLayer(   //also push event ?
             {
               'event': 'checkout',
+              'dimension1': 'standardShipping',
+              'dimension2': 'Invoice',
               'ecommerce': {
                 'currencyCode': 'EUR',
                 'checkout': {
                   'actionField': {'step': 4, 'option': 'Visa'},
-                  'products': [{
-                    'name': 'Triblend Android T-Shirt',
+                  'products': [{                            // List of productFieldObjects.
+                    'name': 'Triblend Android T-Shirt',     // Name or ID is required.
                     'id': '12345',
                     'price': '15.25',
-                    'brand': 'Google',
+                    'brand': 'Google2',
                     'category': 'Apparel',
                     'variant': 'Gray',
-                    'quantity': 1
-                  }]
+                    'quantity': 1,
+                    'coupon': '',                            // Optional fields may be omitted or set to empty string.
+                    'metric1':'20.25',  // original price
+                    'metric2':'5.00'  // discount
+                   },
+                   {
+                    'name': 'Donut Friday Scented T-Shirt',
+                    'id': '67890',
+                    'price': '33.75',
+                    'brand': 'Google2',
+                    'category': 'Apparel',
+                    'variant': 'Black',
+                    'quantity': 1,
+                    'metric1':'33.75',  // original price
+                    'metric2':'0.00'  // discount
+                   }]
+                },
+                'purchase': {
+                  'actionField': {
+                    'id': 'T'+Math.random()*100000,                         // Transaction ID. Required for purchases and refunds.
+                    'affiliation': 'Online Store',
+                    'revenue': '35.43',                     // Total transaction value (incl. tax and shipping)
+                    'tax':'4.90',
+                    'shipping': '5.99',
+                    'coupon': 'SUMMER_SALE'
+                  },
+                  'products': [{                            // List of productFieldObjects.
+                    'name': 'Triblend Android T-Shirt',     // Name or ID is required.
+                    'id': '12345',
+                    'price': '15.25',
+                    'brand': 'Google2',
+                    'category': 'Apparel',
+                    'variant': 'Gray',
+                    'quantity': 1,
+                    'coupon': '',                            // Optional fields may be omitted or set to empty string.
+                    'metric1':'20.25',  // original price
+                    'metric2':'5.00'  // discount
+                   },
+                   {
+                    'name': 'Donut Friday Scented T-Shirt',
+                    'id': '67890',
+                    'price': '33.75',
+                    'brand': 'Google2',
+                    'category': 'Apparel',
+                    'variant': 'Black',
+                    'quantity': 1,
+                    'metric1':'33.75',  // original price
+                    'metric2':'0.00'  // discount
+                   }]
                 }
               }
             });
