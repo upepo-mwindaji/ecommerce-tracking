@@ -152,8 +152,6 @@ angular.module('fakeEcommerceApp')
             datalayerService.pushToDataLayer(   //also push event ?
             {
               'event': 'checkout',
-              'dimension1': 'standardShipping',
-              'dimension2': 'Invoice',
               'ecommerce': {
                 'currencyCode': 'EUR',
                 'checkout': {
@@ -185,7 +183,7 @@ angular.module('fakeEcommerceApp')
               }
             });
             datalayerService.pushToDataLayer(   //also push event ?
-            {
+            { 'event': 'transaction',
               'page': {
                 'dimension1': 'standardShipping',
                 'dimension2': 'Invoice'
