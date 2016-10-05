@@ -6,7 +6,7 @@
 // You will need to set these on the server you deploy to.
 
 module.exports = {
-  DOMAIN:           'http://localhost:9000',
+  DOMAIN:           '0.0.0.0:8080',
   SESSION_SECRET:   'fakeecommerce-secret',
 
   // Control debug level for modules using visionmedia/debug
