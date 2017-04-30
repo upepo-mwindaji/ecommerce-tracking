@@ -18,7 +18,8 @@ module.exports = function (grunt) {
     protractor: 'grunt-protractor-runner',
     buildcontrol: 'grunt-build-control',
     istanbul_check_coverage: 'grunt-mocha-istanbul',
-    ngconstant: 'grunt-ng-constant'
+    ngconstant: 'grunt-ng-constant',
+    shell: 'grunt-shell-spawn'
   });
 
   // Time how long tasks take. Can help when optimizing build times
@@ -53,7 +54,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= express.options.port %>'
+        url: 'http://0.0.0.0:<%= express.options.port %>'
       }
     },
     watch: {
@@ -213,6 +214,23 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+    
+    // run mongod
+    shell: {
+        mongodb: {
+            // command: 'mongod --bind_ip=$IP --nojournal'
+            command: 'mongod --bind_ip=$IP --nojournal',
+            options: {
+                async: true,
+                stdout: false,
+                stderr: true,
+                failOnError: true,
+                execOptions: {
+                    cwd: '.'
+                }
+            }
+        }
     },
 
     // Automatically inject Bower components into the app and karma.conf.js
@@ -649,6 +667,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'shell:mongodb',
       'clean:server',
       'env:all',
       'concurrent:pre',
